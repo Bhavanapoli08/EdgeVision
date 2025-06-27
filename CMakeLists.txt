@@ -3,6 +3,9 @@ project (TEST LANGUAGES CXX DESCRIPTION "Network surveillance camera system base
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+add_compile_options(-Wno-sign-conversion)
+
+
 option(ENABLE_MULTITHREAD "enable multi-thread" OFF)
 
 if (ENABLE_MULTITHREAD)
@@ -58,6 +61,3 @@ target_link_libraries(yolo_still ${OpenCV_LIBS})
 add_executable(yolo_vid main_vid.cpp ohtj2k_codec.cpp)
 target_include_directories(yolo_vid PRIVATE ${CMAKE_SOURCE_DIR} ${OpenCV_INCLUDE_DIRS})
 target_link_libraries(yolo_vid open_htj2k ${OpenCV_LIBS})
-
-
-

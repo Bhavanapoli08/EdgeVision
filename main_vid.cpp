@@ -54,7 +54,8 @@ int main(int argc, char *argv[]) {
       printf("ERROR: cannot grab a frame\n");
       break;
     }
-    __attribute_maybe_unused__ int tr0 = yolo.get_aftrigger();
+    [[maybe_unused]] int tr0 = yolo.get_aftrigger();
+
 
     // Process the image
     output_image = yolo.invoke(frame);
